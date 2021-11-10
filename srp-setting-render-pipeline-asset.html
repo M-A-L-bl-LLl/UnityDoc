@@ -1,0 +1,1276 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script><script type="text/javascript">
+					function OptanonWrapper() { }
+				</script><script>var offline=(location.href.indexOf('docs.unity3d.com')==-1)?true:false;if(!offline){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);  })(window,document,'script','dataLayer','GTM-5V25JL6');}</script><link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Switching render pipelines</title>
+<meta property="og:image" content="https://unity3d.com/files/images/ogimg.jpg">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript" src="https://docs.unity3d.com/StaticFilesConfig/UnityVersionsInfo.js"></script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1612889658"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1612889658"></script><script type="text/javascript" src="docdata/toc.js?ts=1612889658"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1612889658"></script><link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1612889658">
+<link rel="stylesheet" href="../StaticFilesManual/css/prism.css">
+<script src="../StaticFilesManual/js/prism.js"></script><script src="/StaticFilesConfig/feedback/feedback.js"></script><script src="../StaticFilesManual/js/jquery.sidebar.min.js"></script><link rel="stylesheet" href="../StaticFilesManual/css/mobileoptimisation.css">
+<script src="../StaticFilesManual/js/mobileoptimisation.js"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="DocsAnalyticsData" data-area="none" data-pagetype="manual"></div>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div id="nav-open" for="nav-input"><span></span></div>
+<div class="logo"><a href="https://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="https://unity.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="toggle version-number" id="VersionNumber" data-target=".otherversionscontent">
+                                Version: <b>2019.4</b><div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">
+<ul id="OtherVersionsContentUl"></ul>
+<div id="otherVersionsLegend"><ul>
+<li>
+<div id="supportedColour" class="legendBox"></div>Supported</li>
+<li>
+<div id="notFoundColour" class="legendBox"></div>Legacy</li>
+</ul></div>
+</div>
+<div id="VersionSwitcherArrow" class="arrow versionSwitcherArrow"></div>
+</div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/srp-setting-render-pipeline-asset.html">English</a></li>
+<li><a href="/cn/current/Manual/srp-setting-render-pipeline-asset.html">中文</a></li>
+<li><a href="/ja/current/Manual/srp-setting-render-pipeline-asset.html">日本語</a></li>
+<li><a href="/es/current/Manual/srp-setting-render-pipeline-asset.html">Español</a></li>
+<li><a href="/kr/current/Manual/srp-setting-render-pipeline-asset.html">한국어</a></li>
+<li><a href="/ru/current/Manual/srp-setting-render-pipeline-asset.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div>
+<div class="mobileLogo"><a href="https://docs.unity3d.com"></a></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc" id="customScrollbar">
+<h2>Unity Manual</h2>
+<div class="search-form sidebar-search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" id="mobileSearchBtn" class="submit" value="Search">
+</form></div>
+<div class="toggle version-number sidebar-version-switcher" id="VersionNumber" data-target=".otherversionscontent"><form id="otherVersionsContentMobileForm"><div class="ui-field-contain">
+<label for="select-native-4">Version: 2019.4</label><select name="select-native-4" id="versionsSelectMobile"><option>Select a different version</option>
+<optgroup id="versionsWithThisPageMobile" label="Versions with this page"></optgroup>
+<optgroup id="versionsWithoutThisPageMobile" label="Versions without this page"></optgroup></select>
+</div></form></div>
+<div class="lang-switcher"><div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language
+:                <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/srp-setting-render-pipeline-asset.html">English</a></li>
+<li><a href="/cn/current/Manual/srp-setting-render-pipeline-asset.html">中文</a></li>
+<li><a href="/ja/current/Manual/srp-setting-render-pipeline-asset.html">日本語</a></li>
+<li><a href="/es/current/Manual/srp-setting-render-pipeline-asset.html">Español</a></li>
+<li><a href="/kr/current/Manual/srp-setting-render-pipeline-asset.html">한국어</a></li>
+<li><a href="/ru/current/Manual/srp-setting-render-pipeline-asset.html">Русский</a></li>
+</ul></div>
+</div></div>
+</div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html"> Unity User Manual (2019.4 LTS)</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="render-pipelines.html"> Render pipelines</a></li>
+<li> Switching render pipelines</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip"> Render pipelines introduction</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip"> Using the Built-in Render Pipeline</div>
+</div>
+</div></div>
+<div id="_leavefeedback"></div>
+<h1>Switching render pipelines</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This page contains information on setting the active render pipeline Unity is using. This information lets you switch to the Built-in Render Pipeline, the Universal Render Pipeline (URP), the High Defintion Render Pipeline (HDRP), or a custom render pipeline. </p>
+
+<p>Note that if you switch to a different render pipeline, you must ensure that the assets and code in your project are compatible with the new render pipeline; otherwise, you might experience errors or unintended visual effects.</p>
+
+<p>As soon as you set the active render pipeline in the Unity Editor, Unity begins <span class="tooltip"><strong>rendering</strong><span class="tooltiptext">The process of drawing graphics to the screen (or to a render texture). By default, the main camera in Unity renders its view to the screen. <a class="tooltipMoreInfoLink" href="GraphicsOverview.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a class="tooltipMoreInfoLink" href="Glossary.html#Rendering">Glossary</a></span></span></span> with it. This includes the Game view, the <span class="tooltip"><strong>Scene view</strong><span class="tooltiptext">An interactive view into the world you are creating. You use the Scene View to select and position scenery, characters, cameras, lights, and all other types of Game Object. <a href="UsingTheSceneView.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a class="tooltipMoreInfoLink" href="Glossary.html#SceneView">Glossary</a></span></span></span>, and previews for Materials that are displayed in the Project panel and the <span class="tooltip"><strong>Inspector</strong><span class="tooltiptext">A Unity window that displays information about the currently selected GameObject, asset or project settings, alowing you to inspect and edit the values. <a href="UsingTheInspector.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#Inspector">Glossary</a></span></span></span>.</p>
+
+<h2>Activating the Built-in Render Pipeline</h2>
+
+<p>To set the active render pipeline to the Built-in Render Pipeline, you must tell Unity that you are not using any Scriptable Render Pipeline based render pipelines. When you have removed all references to these from your <span class="tooltip"><strong>project settings</strong><span class="tooltiptext">A broad collection of settings which allow you to configure how Physics, Audio, Networking, Graphics, Input and many other areas of your project behave. <a class="tooltipMoreInfoLink" href="comp-ManagerGroup.html">More info</a><br/><span class="tooltipGlossaryLink">See in <a href="Glossary.html#ProjectSettings">Glossary</a></span></span></span>, Unity defaults to using the Built-in Render Pipeline.</p>
+
+<p>To do this:</p>
+
+<ol>
+<li>Open the Quality Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Quality</strong>.</li>
+<li>For each quality level, set the <strong>Render Pipeline</strong> field to <strong>None</strong>.</li>
+<li>Open the Graphics Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Graphics</strong>.</li>
+<li>Set the <strong>Scriptable Render Pipeline Setting</strong> field to <strong>None</strong>.</li>
+</ol>
+
+<h2>Activating URP, HDRP, or a custom render pipeline based on SRP</h2>
+
+<p>To set the active render pipeline to one that is based on SRP, you must tell Unity which Render Pipeline Asset to use. A Render Pipeline Asset is an asset that contains data about which render pipeline to use, and how to configure that render pipeline.</p>
+
+<p>You can have multiple Render Pipeline Assets that tell Unity to use the same render pipeline with different configurations; for example, you might have one that has settings suitable for high-end hardware, and one that has settings suitable for low-end hardware.</p>
+
+<p>For a general introduction to Render Pipeline Assets, see <a href="scriptable-render-pipeline-introduction.html">Scriptable Render Pipeline introduction</a>. For information on Render Pipeline Assets in URP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest/index.html?subfolder=/manual/universalrp-asset.html">The Universal Render Pipeline Asset</a>. For information on Render Pipeline Assets in HDRP, see <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/HDRP-Asset.html">The High Defintion Render Pipeline Asset</a>.</p>
+
+<h3>In the Unity Editor</h3>
+
+<ol>
+<li>Open the Graphics Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Graphics</strong>.</li>
+<li>In your Project folder, locate the Render Pipeline Asset for the render pipeline that you want to use.</li>
+<li>Drag the Render Pipeline Asset on to the <strong>Scriptable Render Pipeline Setting</strong> field. This defines the default render pipeline, which Unity uses when there is no override for a given quality level.</li>
+<li>Optional, to use a different Render Pipeline Asset for different quality levels: Open the Quality Settings window by navigating to <strong>Edit &gt; Project Settings &gt; Quality</strong>.</li>
+<li>Optional, to use a different Render Pipeline Asset for different quality levels: for each quality level, drag the Render Pipeline Asset on to the <strong>Render Pipeline</strong> field.</li>
+</ol>
+
+<h3>In C# code</h3>
+
+<p>You can set the Render Pipeline Asset using C# code. You can run this code in Edit Mode or Play Mode in the Unity Editor, or at runtime in the built player.</p>
+
+<p>Because SRP is highly configurable, changing the active Render Pipeline Asset can result in a very minor change, or a very large change (such as switching from URP to HDRP). The performance cost of changing Render Pipeline Asset at runtime varies accordingly.</p>
+
+<p>Note that swapping to a new Render Pipeline Asset causes Unity to destroy the current Render Pipeline Instance, and call the new Render Pipeline Asset’s <code>CreatePipeline()</code> method. Depending on the code in your SRP, this might be a computationally resource-intensive operation.</p>
+
+<p>The following example code shows how to set the default Render Pipeline Asset that is stored in <a href="../ScriptReference/Rendering.GraphicsSettings-renderPipelineAsset.html">GraphicsSettings.renderPipelineAsset</a>. </p>
+
+<p>Note that if you have assigned Render Pipeline Assets to the quality levels in your project’s Quality Settings, the Render Pipeline Asset for the current quality level overrides the default Render Pipeline Asset. You can update these in C# code in the same way as below, using the <a href="QualitySettings-renderPipeline">QualitySettings-renderPipeline</a> API.</p>
+
+<pre><code class="c#">
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+    public class EnemySpawner : MonoBehaviour
+    {
+        [SerializeField] private GameObject enemy;
+        [SerializeField] private GameObject spawnPosition;
+        [SerializeField] private Text timerTxt;
+        [SerializeField] private float timeRemain;
+        bool timeOver;
+        double currentTime;
+        Vector3 instantiatePos;
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+            
+            StartCoroutine(SpawnEnemy(Random.Range(2,5)));
+        }
+    
+        // Update is called once per frame
+        void Update()
+        {
+            instantiatePos = new Vector3(Random.RandomRange(-1f,0.7f), spawnPosition.transform.position.y, spawnPosition.transform.position.z);
+            
+        }
+    
+    
+        IEnumerator SpawnEnemy(float waitTime)
+        {
+            
+            while(!timeOver){
+                Instantiate(enemy, instantiatePos,Quaternion.identity);
+                yield return new WaitForSeconds(waitTime);
+            }
+                
+                  
+        }
+    
+        private void Timer(){
+            timerTxt.text = currentTime.ToString();  
+            currentTime = System.Math.Round(timeRemain, 0);
+            if(timeRemain > 0){
+               timeRemain -= Time.deltaTime;    
+                    
+            }
+            else{
+               timeOver = true;
+            }
+        }
+    }
+</code></pre>
+<pre><code class="c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class Enemy : MonoBehaviour
+    {
+        [SerializeField] private float speed;
+        public float health;
+        Rigidbody rigidbody;
+        // Start is called before the first frame update
+        void Start()
+        {
+            rigidbody = gameObject.GetComponent<Rigidbody>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            rigidbody.AddForce(Vector3.back * speed * Time.deltaTime);
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class Enemy : MonoBehaviour
+    {
+        public float health;
+        [SerializeField] private float moveSpeed;    
+        [SerializeField] private float energyGive;
+        private Energy energyScr;
+        private GameObject plane;
+        // Start is called before the first frame update
+        void Start()
+        {
+            energyScr = GameObject.Find("GameLogic").GetComponent<Energy>();
+            plane = GameObject.Find("Plane");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            if(health <= 0)
+            {
+                energyScr.energy += energyGive;
+                Destroy(gameObject);
+            }
+
+            transform.rotation = plane.transform.rotation;
+        }
+
+        private void OnTriggerEnter(Collider other) {
+            if(other.gameObject.tag == "Base")
+                Destroy(gameObject);
+        }
+
+        
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+
+    public class Energy : MonoBehaviour
+    {
+        [SerializeField] private Text energyTxt;
+        [SerializeField] private GameObject energyTxt3D;
+        public float energy;
+
+        private void Update()
+        {
+            energyTxt.text = "Energy: " + energy;
+            energyTxt3D.GetComponent<TextMesh>().text = "Energy: " + energy;
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class Projectile : MonoBehaviour
+    {
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float damage;
+        [SerializeField] private Vector3 initPos;
+        // Start is called before the first frame update
+        void Start()
+        {
+            initPos = transform.position;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            if(Vector3.Distance(transform.position,initPos) >20)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Enemy")
+            {
+                other.GetComponent<Enemy>().health -= damage;
+                Destroy(gameObject);
+            }
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+
+    public class SetTower : MonoBehaviour
+    {
+        [SerializeField] private int selected;
+        [SerializeField] private GameObject[] towers;
+        [SerializeField] private float[] prices;
+        [SerializeField] private GameObject tile;
+        
+        private Energy energyScr;
+        private bool typeIsSelected;
+        private Touch touch;
+        private GameObject game;
+        // Start is called before the first frame update
+        void Start()
+        {
+            energyScr = GameObject.Find("GameLogic").GetComponent<Energy>();
+            typeIsSelected = false;
+            game = GameObject.Find("Game");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            #if !UNITY_EDITOR
+                Debug.LogWarning("touch0");
+
+            if (Input.touchCount > 0)
+            {
+                Debug.LogWarning("touch1");
+
+                touch = Input.GetTouch(0);
+                
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 20))
+                    {
+                        if (hit.transform.tag == "Tile")
+                        {
+                            tile = hit.transform.gameObject;
+
+                            if (tile != null && typeIsSelected)
+                            {
+                                TileTaken tileTakenScr = tile.GetComponent<TileTaken>();
+                                                        
+
+                            
+                                if (!tileTakenScr.isTaken && energyScr.energy >= prices[selected])
+                                {
+                                    Debug.Log("Touch");
+                                    
+                                    energyScr.energy -= prices[selected];
+                                    Vector3 pos = new Vector3(tile.transform.position.x, tile.transform.position.y + .1f, tile.transform.position.z);
+                                    //tileTakenScr.tower = (GameObject)Instantiate(towers[selected], pos, Quaternion.Euler(0,-90,0));
+                                    var child = (GameObject)Instantiate(towers[selected], pos, Quaternion.Euler(tile.transform.rotation.x, tile.transform.rotation.y,tile.transform.rotation.z));            
+                                    tileTakenScr.tower = child; 
+                                    child.transform.SetParent(game.transform, true);
+                                    tileTakenScr.isTaken = true;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            tile = null;
+                        }
+                    }
+                }
+
+                
+            }  
+
+            #else
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Debug.LogWarning("pc1");
+            if (Physics.Raycast(ray, out hit, 20))
+                {
+                    if (hit.transform.tag == "Tile")
+                    {
+                        tile = hit.transform.gameObject;
+                    }
+                    else
+                    {
+                        tile = null;
+                    }
+                }
+
+            if (Input.GetMouseButtonDown(0) && tile != null && typeIsSelected)
+            {
+                TileTaken tileTakenScr = tile.GetComponent<TileTaken>();
+                if (!tileTakenScr.isTaken && energyScr.energy >= prices[selected])
+                {
+                    Debug.LogWarning("pc2");
+
+                    energyScr.energy -= prices[selected];
+                    Vector3 pos = new Vector3(tile.transform.position.x, .19f, tile.transform.position.z);
+                    tileTakenScr.tower = (GameObject)Instantiate(towers[selected], pos, Quaternion.Euler(tile.transform.rotation.x,-90,tile.transform.rotation.z));
+                    tileTakenScr.isTaken = true;
+                }
+            }
+            
+            #endif
+        }
+        
+        public void SetOneShootTower()
+        {
+            typeIsSelected = true;
+            selected = 1;
+        }
+        public void SetEnergyTower()
+        {
+            typeIsSelected = true;
+            selected = 0;
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class TileTaken : MonoBehaviour
+    {
+        public bool isTaken;
+        public GameObject tower;
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class Tower : MonoBehaviour
+    {
+        [Header("Tower stats")]
+        [SerializeField] private bool oneShootTower;
+        [SerializeField] private bool energyTower;
+        [SerializeField] private float health;
+        [Header("One shoot tower")]    
+        [SerializeField] private float shootCooldown;     
+        [SerializeField] private GameObject projectile;
+        [SerializeField] private GameObject projectileSpawn;
+        [Header("Energy Tower")]
+        [SerializeField] private float energySpawn;
+        [SerializeField] private float cooldown;
+
+        private Energy energyScr;
+        private float cd;
+        private float energyCd;
+        private GameObject plane;
+        Animator animator;
+        // Start is called before the first frame update
+        void Start()
+        {
+            cd = shootCooldown;
+            animator = GetComponent<Animator>();
+            energyScr = GameObject.Find("GameLogic").GetComponent<Energy>();
+            plane = GameObject.Find("Plane");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (oneShootTower)
+            {
+                Shoot();
+            }
+            else if (energyTower)
+            {
+                SpawnEnergy();
+            }
+        // Quaternion rotationOfPlane = Quaternion.Euler(plane.transform.rotation.x, plane.transform.rotation.y + (-90), plane.transform.rotation.z);
+            transform.rotation = plane.transform.rotation;
+        }
+
+        void SpawnEnergy()
+        {
+            if(energyCd > 0)
+            {
+                energyCd -= Time.deltaTime;
+            }
+            else
+            {
+                energyCd = cooldown;
+                energyScr.energy += energySpawn;
+            }
+        }
+
+        void Shoot()
+        {
+            if (cd > 0)
+            {
+                cd -= Time.deltaTime;
+            }
+            else
+            {
+                RaycastHit hit;
+                if(Physics.Raycast(transform.position,Vector3.right, out hit, 15))
+                {
+                    if(hit.transform.tag == "Enemy")
+                    {
+                        cd = shootCooldown;
+                        animator.SetTrigger("Shoot");
+                        Instantiate(projectile, projectileSpawn.transform.position, Quaternion.identity);
+                    }
+                }
+            }
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
+    using UnityEngine.SceneManagement;
+
+    public class UiManager : MonoBehaviour
+    {
+        [Header("Buttons")]
+        [SerializeField] private Button shootTowerBtn;
+        [SerializeField] private Button energyTowerBtn;
+        
+        [Header("Lose game panel")]
+        [SerializeField] private GameObject panelHolder;
+        private Base baseScr;
+        // Start is called before the first frame update
+        void Start()
+        {
+            baseScr = GameObject.Find("Base").GetComponent<Base>();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (baseScr.loseGame)
+            {
+                panelHolder.SetActive(true);
+                shootTowerBtn.gameObject.SetActive(false);
+                energyTowerBtn.gameObject.SetActive(false);
+                
+            }
+        }
+
+        public void OnRetryBtn(int sceneId){
+            SceneManager.LoadScene(sceneId);
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class WaveManager : MonoBehaviour
+    {
+        [SerializeField] private int numOut;
+        [SerializeField] private GameObject[] enemies;
+        [SerializeField] private float cooldown;
+        [SerializeField] private GameObject[] spawnPoints;
+        private float cd;
+        private GameObject game;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            cd = cooldown * 2;
+            game = GameObject.Find("Game");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (cd > 0)
+            {
+                cd -= Time.deltaTime;
+            }
+            else
+            {
+                cd = cooldown;
+                GameObject randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Vector3 pos = new Vector3(randomSpawn.transform.position.x, randomSpawn.transform.position.y + .25f, randomSpawn.transform.position.z);
+                int index = Random.Range(0, enemies.Length);
+                var child = Instantiate(enemies[index], pos, Quaternion.Euler(randomSpawn.transform.rotation.x, randomSpawn.transform.rotation.y, transform.rotation.z));
+                child.transform.SetParent(game.transform, true);
+                numOut++;
+            }
+
+            
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public static class Bezier 
+    {
+        
+        public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, float t){
+            Vector3 p01 = Vector3.Lerp(p0, p1, t);
+            Vector3 p12 = Vector3.Lerp(p0, p2, t);
+            Vector3 p23 = Vector3.Lerp(p0, p3, t);
+
+            Vector3 p012 = Vector3.Lerp(p01, p12, t);
+            Vector3 p123 = Vector3.Lerp(p12, p23, t);
+
+            Vector3 p0123 = Vector3.Lerp(p012, p123, t);
+
+            return p0123;   
+        }
+
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    [ExecuteAlways]
+    public class BezierRope : MonoBehaviour
+    {
+        public Transform P0;
+        public Transform P1;
+        public Transform P2;
+        public Transform P3;
+
+        private Transform Cork;
+        private Vector3[] positions = new Vector3 [50];
+        int numPoints = 50;
+        public LineRenderer lineRenderer;
+
+        [SerializeField]
+        [Range(0,1)]
+        public static float t;
+
+        private void Awake() {
+            Cork = gameObject.GetComponent<Transform>();
+            t = 0.8f; //0.8f
+        }
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
+            
+            //DrawLine();
+            
+            
+        }
+
+        private void OnDrawGizmos() {
+            int sigmentsNumber = 20;
+            Vector3 preveousPoint = P0.position;
+
+            for (int i = 0; i < sigmentsNumber + 1 ; i++)
+            {
+                float paremetr = (float)i / sigmentsNumber;
+                Vector3 point = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, paremetr);
+                Gizmos.DrawLine(preveousPoint, point);
+                preveousPoint = point;
+            }
+        }
+
+        private void DrawLine(){
+
+            for (int i = 1; i < numPoints + 1; i++)
+            {
+                float t = i / (float)numPoints;
+                positions[i - 1] = Bezier.GetPoint(Cork.position, P1.position, P2.position, P3.position, t);
+            }
+        // lineRenderer.SetPositions(positions);
+        }
+    }
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    
+    public class FishController : MonoBehaviour
+    {
+        public enum PathTypes{
+            linear,
+            loop
+        }
+    
+        public PathTypes pathType;
+        [SerializeField] private int movementDirection = 1;
+        [SerializeField] private int movingTo;
+    
+        public Transform[] PathElements;
+    
+        private void OnDrawGizmos() {
+            if (PathElements == null || PathElements.Length < 2)
+                return;
+            
+            for (int i = 1; i < PathElements.Length; i++)        
+                Gizmos.DrawLine(PathElements [i-1].position, PathElements[i].position);
+            
+            if (pathType == PathTypes.loop)
+                Gizmos.DrawLine(PathElements[0].position, PathElements[PathElements.Length - 1].position);
+        }
+    
+        public IEnumerator<Transform> GetNextPathPoint(){
+            if (PathElements == null || PathElements.Length < 1)        
+                yield break;
+            
+            while (true){
+                yield return PathElements[movingTo];
+    
+                if (PathElements.Length == 1)
+                {
+                    continue;
+                }
+    
+                if (pathType == PathTypes.linear)
+                {
+                    if (movingTo <= 0)
+                    {
+                        movementDirection = 1;
+                    }
+                    else if (movingTo >= PathElements.Length - 1)
+                    {
+                        movementDirection = -1;
+                    }
+                }
+    
+                movingTo = movingTo + movementDirection;
+    
+                if (pathType == PathTypes.loop)
+                {
+                    if (movingTo >= PathElements.Length)
+                    {
+                        movingTo = 0;
+                    }
+    
+                    if (movingTo < 0 )
+                    {
+                        movingTo = PathElements.Length - 1;
+                    }
+                }
+            }
+        }
+            
+    }    
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class FishingRodController : MonoBehaviour
+    {
+        [SerializeField] private GameObject pointMain;
+        [SerializeField] private GameObject secondPoint;
+        [SerializeField] private float pointSpeed;
+        [SerializeField] private GameObject cork;
+        [SerializeField] private GameObject pointBox;
+        [SerializeField] private GameObject fishingRod;
+        [SerializeField] private GameObject backPoint;
+        private bool corkUp = false;
+        //Vector3 _backPoint;
+        
+        private void Start() {
+            corkUp = true;
+            //_backPoint = new Vector3(backPoint.transform.position.x, backPoint.transform.position.y, backPoint.transform.position.z);
+        }
+        private void Awake() {
+            // backPoint.transform.position.x, backPoint.transform.position.y, backPoint.transform.position.z
+        }
+        
+    public void MovePointStart(){
+        
+        pointSpeed = 600;
+
+        if (corkUp)
+        {
+            Debug.Log("Started");
+            pointMain.transform.Translate(0,0,-pointSpeed * Time.deltaTime);
+            //point.GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().transform.forward * pointSpeed;
+            pointMain.GetComponent<Rigidbody>().isKinematic = false;
+            pointMain.GetComponent<Rigidbody>().useGravity = true;
+            BezierRope.t = 0.05f;           
+            pointMain.transform.SetParent(pointBox.transform, true);
+            //secondPoint.transform.SetParent(pointBox.transform, true);
+            corkUp = false;
+        }
+            else{
+            //  pointMain.transform.Translate(0,0,-pointSpeed * Time.deltaTime);
+                pointMain.transform.position = new Vector3(backPoint.transform.position.x,backPoint.transform.position.y, backPoint.transform.position.z);
+                pointMain.transform.rotation = backPoint.transform.rotation;
+                pointMain.GetComponent<Rigidbody>().isKinematic = true;
+                pointMain.GetComponent<Rigidbody>().useGravity = false;
+                pointMain.transform.SetParent(fishingRod.transform, true);
+            // secondPoint.transform.SetParent(fishingRod.transform, true);
+                BezierRope.t = 0.8f;
+                corkUp = true;
+            }
+
+        
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class FishMovement : MonoBehaviour
+    {
+        public enum MovementType{
+            Moving,
+            Lerping
+        }
+
+        public MovementType Type = MovementType.Moving;
+        public FishController MyPath;
+        [SerializeField] private float speed = 1;
+        [SerializeField] private float maxDistance = .1f; 
+
+        private IEnumerator<Transform> pointInPath;
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (MyPath == null)
+            {
+                Debug.Log("Примени путь");
+                return;
+            }
+
+            pointInPath = MyPath.GetNextPathPoint();
+
+            pointInPath.MoveNext();
+
+            if (pointInPath.Current == null)
+            {
+                Debug.Log("Нужны точки");
+                return;
+            }
+
+            transform.position = pointInPath.Current.position;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (pointInPath == null || pointInPath.Current == null)
+            {
+                return;
+            }
+
+            if (Type == MovementType.Moving)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, pointInPath.Current.position, Time.deltaTime * speed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, pointInPath.Current.rotation, Time.deltaTime * speed);
+            }
+            else if (Type == MovementType.Lerping){
+                transform.position = Vector3.Lerp(transform.position, pointInPath.Current.position, Time.deltaTime * speed);
+            }
+
+            var distanceSqure = (transform.position - pointInPath.Current.position).sqrMagnitude;
+
+            if (distanceSqure < maxDistance *  maxDistance)   
+                pointInPath.MoveNext();
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.AI;
+    public class FishNavMesh : MonoBehaviour
+    {
+        [SerializeField] private Transform movePefab;
+        private GameObject movePositionTransform;
+        private NavMeshAgent navMeshAgent;
+        //private bool FishEnterPoint = false;
+        
+        private void Start() {
+            
+        }
+        private void Awake() {
+            
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        //movePositionTransform = GameObject.FindGameObjectWithTag("Key");
+        // CreateMovePoint(new Vector3(Random.Range(-9f, 15f), 2.5f, Random.Range(20f, 60f)));
+        
+        }
+
+        private void Update() {
+            navMeshAgent.destination = movePefab.position;   
+
+        // if(FishEnterPoint == true){
+        //     CreateMovePoint(new Vector3(Random.Range(-9f, 15f), 2.5f, Random.Range(20f, 60f)));
+        //     FishEnterPoint = false;
+        // }
+                
+        }
+
+        //private void OnTriggerEnter(Collider other) {
+        //    if(other.tag == "Key"){
+    //           Destroy(other.gameObject);
+        //     FishEnterPoint = true;
+        //      Debug.Log("destroy");
+        //    }
+    // }
+
+        private void CreateMovePoint(Vector3 position){
+            Instantiate(movePefab, position, Quaternion.identity, transform);
+            Debug.Log("Создана новая точка");
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+
+    [System.Serializable]
+    public class Fish{
+        public string Name;
+        public GameObject Prefab;
+        [Range (0f, 100f)]public float Chance = 100f;
+        [HideInInspector] public double _weight;
+    }
+    public class FishSpawner : MonoBehaviour
+    {
+        [SerializeField] private Fish[] fishes;
+
+        private double accumulatedWeights;
+        private System.Random rand = new System.Random ();
+
+        private void Awake() {
+                CalculateWeights();
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+            for (int i = 0; i < 20; i++)
+                SpawnRandomFish(new Vector3(Random.Range(-9f, 15f), 2.5f, Random.Range(20f, 60f)));
+        }
+
+        private void SpawnRandomFish(Vector3 position){
+            Fish randomFish = fishes[GetRandomFishIndex()];
+
+            Instantiate(randomFish.Prefab, position, Quaternion.Euler(-90,0,0), transform);
+            Debug.Log("<Fish=" + randomFish.Name + "></Fish Chance: <b>" + randomFish.Chance + "</b>%");
+        
+        }
+
+        private int GetRandomFishIndex(){
+            double r = rand.NextDouble() * accumulatedWeights;
+
+            for (int i = 0; i < fishes.Length; i++)        
+                if (fishes[i]._weight >= r)            
+                    return i;
+                
+            return 0;  
+        }
+        private void CalculateWeights(){
+            accumulatedWeights = 0f;
+            
+            foreach (Fish fish in fishes)
+            {
+                accumulatedWeights += fish.Chance;
+                fish._weight = accumulatedWeights;
+            }
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class ForceOnTrigger : MonoBehaviour
+    {
+
+        [SerializeField] private GameObject corkPoint;
+        [SerializeField] private GameObject corkMiddle;
+
+        
+        private void OnTriggerStay(Collider other) {
+            if (other.tag == "Cork")
+            {
+                other.attachedRigidbody.AddForce(Vector3.up * 10f);
+                
+            
+                
+            }
+        }
+
+        private void OnTriggerExit(Collider other) {
+            if (other.tag == "CorkMiddle")
+            {
+                corkPoint.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                corkPoint.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+        
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.XR;
+
+    public class HandPresence : MonoBehaviour
+    {
+        public bool showController = false;
+        public InputDeviceCharacteristics controllerCharacteristics;
+        public List<GameObject> controllerPrefabs;
+        public GameObject handModelPrefab;
+        
+        private InputDevice targetDevice;
+        private GameObject spawnedController;
+        private GameObject spawnedHandModel;
+        private Animator handAnimator;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            TryInitialize();
+        }
+
+        void TryInitialize()
+        {
+            List<InputDevice> devices = new List<InputDevice>();
+
+            InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+
+            foreach (var item in devices)
+            {
+                Debug.Log(item.name + item.characteristics);
+            }
+
+            if (devices.Count > 0)
+            {
+                targetDevice = devices[0];
+                GameObject prefab = controllerPrefabs.Find(controller => controller.name == targetDevice.name);
+                if (prefab)
+                {
+                    spawnedController = Instantiate(prefab, transform);
+                }
+                else
+                {
+                    Debug.Log("Did not find corresponding controller model");
+                }
+
+                spawnedHandModel = Instantiate(handModelPrefab, transform);
+                handAnimator = spawnedHandModel.GetComponent<Animator>();
+            }
+        }
+
+        void UpdateHandAnimation()
+        {
+            if(targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+            {
+                handAnimator.SetFloat("Trigger", triggerValue);
+            }
+            else
+            {
+                handAnimator.SetFloat("Trigger", 0);
+            }
+
+            if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+            {
+                handAnimator.SetFloat("Grip", gripValue);
+            }
+            else
+            {
+                handAnimator.SetFloat("Grip", 0);
+            }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if(!targetDevice.isValid)
+            {
+                TryInitialize();
+            }
+            else
+            {
+                if (showController)
+                {
+                    if(spawnedHandModel)
+                        spawnedHandModel.SetActive(false);
+                    if(spawnedController)
+                        spawnedController.SetActive(true);
+                }
+                else
+                {
+                    if (spawnedHandModel)
+                        spawnedHandModel.SetActive(true);
+                    if (spawnedController)
+                        spawnedController.SetActive(false);
+                    UpdateHandAnimation();
+                }
+            }
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
+
+    public class MenuController : MonoBehaviour
+    {
+        
+        public void StartBtn(int sceneId){
+            SceneManager.LoadScene(sceneId);
+        }
+    }
+
+</code></pre>
+<pre><code class="=c#"></code>
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
+    public class RopeSpawn : MonoBehaviour
+    {
+        [SerializeField]
+        GameObject partPrefab, parentObject;
+
+        [SerializeField]
+        [Range(1,1000)]
+        int length = 1;
+
+        [SerializeField]
+        float partDistance = 0.21f;
+
+        [SerializeField]
+        bool reset, spawn, snapFirst, snapLast;
+        
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (reset)
+            {
+                foreach(GameObject tmp in GameObject.FindGameObjectsWithTag("Rope")){
+                    Destroy(tmp);
+                }
+
+                reset = false;
+            }
+
+            if (spawn)
+            {
+                Spawn();
+
+                spawn = false;
+            }
+        }
+
+        public void Spawn(){
+            int count = (int)(length / partDistance);
+
+            for (int i = 0; i < count; i++)
+            {
+                GameObject tmp;
+
+                tmp = Instantiate(partPrefab, new Vector3(transform.position.x, transform.position.y + partDistance * (i + 1), transform.position.z), Quaternion.identity, parentObject.transform);
+                tmp.transform.eulerAngles = new Vector3(100, 0, 0);
+
+                tmp.name = parentObject.transform.childCount.ToString();    
+
+                if (i == 0)
+                {
+                    Destroy(tmp.GetComponent<CharacterJoint>());
+                    if (snapFirst)
+                    {
+                        tmp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                    }
+                }
+                else
+                {
+                    tmp.GetComponent<CharacterJoint>().connectedBody = parentObject.transform.Find((parentObject.transform.childCount - 1).ToString()).GetComponent<Rigidbody>();
+                }
+            }
+
+            if (snapLast)
+            {
+                parentObject.transform.Find((parentObject.transform.childCount).ToString()).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+        }
+    }
+
+</code></pre>
+<div id="_content"></div>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="render-pipelines-overview.html"></a></span><div class="tip"> Render pipelines introduction</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="built-in-render-pipeline.html"></a></span><div class="tip"> Using the Built-in Render Pipeline</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">Copyright © 2020 Unity Technologies. Publication Date: 2021-02-09.</div>
+<div class="menu">
+<a href="https://learn.unity.com/">Tutorials</a><a href="https://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="https://forum.unity3d.com">Forums</a><a href="https://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+</body>
+</html>
